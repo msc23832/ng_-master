@@ -1,0 +1,152 @@
+<!-- Page Content -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- header -->
+            <h1 class="page-header">Dash Board</h1>
+
+
+            <!-- row1 -->
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-send fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{count_send[0]._count}}</div>
+                                    <div>Today send!!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-sliders fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{count_template[0]._count}}</div>
+                                    <div>Templates!!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-users fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{count_users[0]._count}}</div>
+                                    <div>Users!!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-clock-o fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">MA</div>
+                                    <div>__.__</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- row1 -->
+
+
+            <!-- row2 -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i>Monthly
+                        </div>
+                        <!-- <div class="pull-left"> -->
+                        <div class="panel-body">
+                            <div class="col-lg-12">
+                                <nvd3 [options]="options" [data]="data"></nvd3>
+                            </div>
+                            <!-- </div> -->
+
+                        </div>
+
+                    </div>
+                    <!-- panel -->
+                </div>
+                <!-- "col-lg-6 -->
+
+                <div class="col-lg-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Activity
+                        </div>
+                        <!-- <div class="pull-left"> -->
+                        <div class="panel-body"  style="overflow:auto;max-height:410px">
+                            <div class="col-lg-12" >
+                                <app-email-status></app-email-status>
+                            </div>
+                            <!-- </div> -->
+
+                        </div>
+
+                    </div>
+                    <!-- panel -->
+                </div>
+                <!-- "col-lg-6 -->
+
+            </div>
+            <!-- row2 -->
+
+        </div>
+        <!-- col-lg-12 -->
+
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->
