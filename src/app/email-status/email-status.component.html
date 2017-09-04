@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    
+    <th>Email</th>
+    <th>Status</th>
+    
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of allTask ">
+      <td>{{item._email}}</td>
+      <td>{{item._status | uppercase}}</td>
+      <!-- <td>{{item.Status | uppercase}}</td>
+      <td><button (click)="delTask(item)"><span class="glyphicon glyphicon-trash"></span></button>
+          
+      </td> -->
+    </tr>
+  </tbody>
+</table>

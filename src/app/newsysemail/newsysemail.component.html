@@ -1,0 +1,80 @@
+<!-- Page Content -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Create Email System</h2>
+
+            <div class="form-group">
+                <label class="control-label" for="Host">Host :</label> *
+                <input type="text" placeholder="Enter Host" [(ngModel)]="Syse.Host" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Port">Port :</label> *
+                <input type="text" placeholder="Enter Port" [(ngModel)]="Syse.Port" class="form-control custom-control" required/>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Proxy">Proxy :</label> *
+                <input type="text" placeholder="Enter Proxy" [(ngModel)]="Syse.Proxy" class="form-control custom-control" required/>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Detail">Detail :</label> *
+                <textarea class="form-control custom-control" placeholder="Enter Detail" name="Detail" rows="4" style="resize:none" [(ngModel)]="Syse.Detail"
+                    required></textarea>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Email">Email :</label> *
+                <input type="text" placeholder="Enter Email" [(ngModel)]="Syse.Email" class="form-control custom-control" required/>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Password">Password :</label> *
+                <input type="password" placeholder="Enter Password" [(ngModel)]="Syse.Password" class="form-control custom-control" required/>
+            </div>
+            <div class="form-group">
+                <button type="button" id="save" class="btn btn-success" (click)="modal.open()">SAVE</button>
+
+                <button type="button" id="back" class="btn btn-primary" (click)="onBack()">BACK</button>
+            </div>
+
+            <modal #myModal>
+                <modal-header [show-close]="true">
+                    <h4 class="modal-title">Warning !!</h4>
+                </modal-header>
+                <modal-body>
+                    Do you want Insert Data : {{Syse.Email}}
+                </modal-body>
+                <modal-footer>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.dismiss()">Cancel</button>
+                    <button type="button" class="btn btn-primary" (click)="save()">SAVE</button>
+                </modal-footer>
+            </modal>
+
+            <modal #ModalDuplicate>
+                <modal-header [show-close]="true">
+                    <h4 class="modal-title">Warning !!</h4>
+                </modal-header>
+                <modal-body>
+                    Data is Duplicate : {{Users.user}} !!
+                </modal-body>
+                <modal-footer>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                </modal-footer>
+            </modal>
+
+            <modal #ModalRequired>
+                <modal-header [show-close]="true">
+                    <h4 class="modal-title">Warning !!</h4>
+                </modal-header>
+                <modal-body>
+                    Please Enter Required Data !!
+                </modal-body>
+                <modal-footer>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                </modal-footer>
+            </modal>
+
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->

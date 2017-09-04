@@ -1,0 +1,93 @@
+<!-- Page Content -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div [ngBusy]="busy">
+                <h2 class="page-header">Report</h2>
+
+                <div class="form-group col-md-8">
+                    <label class="control-label" for="Form">Form :</label>
+                    <select class="form-control" [(ngModel)]="Filter.Template" required>
+                      <option disabled selected value="">Choose...</option>
+                      <option *ngFor="let data of _data" value="{{ data.IDEmailTemplate }}">{{ data.Name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-8">
+
+                    <label class="control-label" for="Name">Filter :</label>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <input type="date" [(ngModel)]="Filter.DateArr" class="form-control custom-control" required/>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <input type="date" [(ngModel)]="Filter.DateDep" class="form-control custom-control" required/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-8">
+                    <label class="control-label" for="Group">Market sec :</label>
+                    <select class="form-control" [(ngModel)]="Filter.marketsec" name="marketsec" required>
+                      <option disabled selected value="">Choose ..</option>
+                      <option *ngFor="let market of _ArnomaMarket" value="{{ market.marketsegment }}">{{ market.marketsegment }}</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-md-8">
+                    <label class="control-label" for="Rateplan">Rate plan :</label>
+                    <select class="form-control" name="rateplan" [(ngModel)]="Filter.rateplan" required>
+                      <option disabled selected value="">Choose ..</option>
+                        <option *ngFor="let rateplan of _ArnomaRateplan" value="{{ rateplan.rateplan }}">{{ rateplan.rateplan }}</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-md-8">
+                    <label class="control-label" for="Status">Status :</label>
+                    <select class="form-control" name="status" [(ngModel)]="Filter.status" required>
+                       <option disabled selected value="">Choose ..</option>
+                        <option *ngFor="let status of _ArnomaStatus" value="{{ status.status }}">{{ status.status }}</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-md-8">
+                    <label class="control-label" for="floor">Floor :</label>
+                    <select class="form-control" name="floor" [(ngModel)]="Filter.floor" required>
+                      <option disabled selected value="">Choose ..</option>
+                       <option selected value="null">Null</option>
+                        <option *ngFor="let Floor of _ArnomaFloor" value="{{ Floor.ROO_FLOOR }}">{{ Floor.ROO_FLOOR }}</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-md-8">
+                    <label class="control-label" for="Preference">Preference :</label>
+                    <select class="form-control" name="preference" [(ngModel)]="Filter.preference" required>
+                       <option selected value="">Null</option>
+                        <option *ngFor="let preference of _ArnomaPreference" value="{{ preference.Preference }}">{{ preference.Preference }}</option>
+                  </select>
+                </div>
+
+
+
+                <div class="form-group col-md-8">
+                    <label class="control-label" for="User">User :</label>
+                    <select class="form-control" name="user" [(ngModel)]="Filter.user" required>
+                      <option disabled selected value="">Choose ..</option>
+                        <option *ngFor="let user of _dataUser" value="{{ user.User }}">{{ user.User }}</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-md-8">
+                    <button id="search" class="btn btn-primary" (click)="search()" type="button">
+                   <span class="glyphicon glyphicon-send" ></span> Search
+                </button>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->

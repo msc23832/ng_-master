@@ -1,0 +1,78 @@
+<!-- Page Content -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Create Users</h2>
+
+
+            <div class="form-group">
+                <label class="control-label" for="User">User :</label> *
+                <input id='user' name="user" type="text" placeholder="Enter User" [(ngModel)]="Users.user" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Password">Password :</label> *
+                <input type="password" placeholder="Enter Password" [(ngModel)]="Users.password" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Name">Full Name :</label>
+                <input type="text" placeholder="Enter Fullname" [(ngModel)]="Users.fullname" class="form-control custom-control" required/>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="Group">Group :</label> *
+                <select class="form-control" [(ngModel)]="Users.group" required>
+                      <option disabled selected value="0">Choose...</option>
+                        <option value="Admin">Admin</option>
+                        <option value="User">User</option>
+                  </select>
+            </div>
+
+            <div class="form-group">
+                <button type="button" id="save" class="btn btn-success" (click)="modal.open()">SAVE</button>
+
+                <button type="button" id="back" class="btn btn-primary" (click)="onBack()">BACK</button>
+            </div>
+
+            <modal #myModal>
+                <modal-header [show-close]="true">
+                    <h4 class="modal-title">Warning !!</h4>
+                </modal-header>
+                <modal-body>
+                    Do you want Insert Data : {{Users.user}}
+                </modal-body>
+                <modal-footer>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">CANCEL</button>
+                    <button type="button" class="btn btn-primary" (click)="save()">SAVE</button>
+                </modal-footer>
+            </modal>
+
+            <modal #ModalDuplicate>
+                <modal-header [show-close]="true">
+                    <h4 class="modal-title">Warning !!</h4>
+                </modal-header>
+                <modal-body>
+                    Data is Duplicate : {{Users.user}} !!
+                </modal-body>
+                <modal-footer>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                </modal-footer>
+            </modal>
+
+            <modal #ModalRequired>
+                <modal-header [show-close]="true">
+                    <h4 class="modal-title">Warning !!</h4>
+                </modal-header>
+                <modal-body>
+                    Please Enter Required Data !!
+                </modal-body>
+                <modal-footer>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                </modal-footer>
+            </modal>
+
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->

@@ -1,0 +1,174 @@
+<!-- Page Content -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div *ngFor="let data of _HotelInfo">
+        <h2 class="page-header">Email Template : {{ data.Name }}</h2>
+
+        <!-- Image -->
+        <img src="{{ data.Logo }}" class="img-responsive center-block" alt="No Image">
+        <!-- Image -->
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="Code">Code :</label> *
+        <input type="text" placeholder="Enter Code" [(ngModel)]="Template.Code" class="form-control" required/>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="Name">Name :</label> *
+        <input type="text" placeholder="Enter Name" [(ngModel)]="Template.Name" class="form-control custom-control" required/>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="Topics">Topics :</label>
+        <input type="text" placeholder="Enter Topics" [(ngModel)]="Template.Topics" class="form-control custom-control" required/>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="Message1">Message 1 :</label>
+        <textarea class="form-control custom-control" placeholder="Enter Message1" name="message1" rows="4" style="resize:none" [(ngModel)]="Template.Message1"
+          required></textarea>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="Message2">Message 2 :</label>
+        <textarea class="form-control custom-control" placeholder="Enter Message2" name="message1" rows="4" style="resize:none" [(ngModel)]="Template.Message2"
+          required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="Sender">Email Sender :</label> *
+        <select class="form-control" [(ngModel)]="Template.IDEmailSystem" required>
+                      <option disabled selected value="0">Choose...</option>
+                      <option *ngFor="let data of _data" value="{{ data.IDEmailSystem }}">{{ data.Email }}</option>
+                  </select>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-12">
+            <label class="control-label" for="Img1">Image Topics :</label>
+            <input type="file" accept="image/*" (change)="onChange($event)" placeholder="Upload file..." required><br>
+            <img [src]="Template.Img1" [class.loaded1]="imageLoaded1" class="img-responsive center-block" /><br>
+            <!--<img src="data:image/png;base64,{{Img1}}" id="Img1" class="img-responsive"><br>-->
+            <input type="text" placeholder="Enter Address Link 1" [(ngModel)]="Template.LinkImg1" name="LinkImg1" class="form-control custom-control"
+              required/><br>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-3">
+            <label class="control-label" for="Img2">Image Body 1 :</label>
+            <input type="file" accept="image/*" (change)="onChange2($event)" placeholder="Upload file..." required><br>
+            <img [src]="Template.Img2" [class.loaded2]="imageLoaded2" class="img-responsive center-block" /><br>
+            <!--<img src="data:image/png;base64,{{Img2}}" id="Img2" class="img-responsive"><br>-->
+            <input type="text" placeholder="Enter Address Link 2" [(ngModel)]="Template.LinkImg2" name="LinkImg2" class="form-control custom-control"
+              required/><br>
+          </div>
+
+          <div class="col-lg-3">
+            <label class="control-label" for="Img3">Image Body 2 :</label>
+            <input type="file" accept="image/*" (change)="onChange3($event)" placeholder="Upload file..." required><br>
+            <img [src]="Template.Img3" [class.loaded2]="imageLoaded3" class="img-responsive center-block" /><br>
+            <!--<img src="data:image/png;base64,{{Img2}}" id="Img2" class="img-responsive"><br>-->
+            <input type="text" placeholder="Enter Address Link 3" [(ngModel)]="Template.LinkImg3" name="LinkImg3" class="form-control custom-control"
+              required/><br>
+          </div>
+
+          <div class="col-lg-3">
+            <label class="control-label" for="Img4">Image Body 3 :</label>
+            <input type="file" accept="image/*" (change)="onChange4($event)" placeholder="Upload file..." required><br>
+            <img [src]="Template.Img4" [class.loaded2]="imageLoaded4" class="img-responsive center-block" /><br>
+            <!--<img src="data:image/png;base64,{{Img2}}" id="Img2" class="img-responsive"><br>-->
+            <input type="text" placeholder="Enter Address Link 4" [(ngModel)]="Template.LinkImg4" name="LinkImg4" class="form-control custom-control"
+              required/><br>
+          </div>
+
+          <div class="col-lg-3">
+            <label class="control-label" for="Img5">Image Body 4 :</label>
+            <input type="file" accept="image/*" (change)="onChange5($event)" placeholder="Upload file..." required><br>
+            <img [src]="Template.Img5" [class.loaded2]="imageLoaded5" class="img-responsive center-block" /><br>
+            <!--<img src="data:image/png;base64,{{Img2}}" id="Img2" class="img-responsive"><br>-->
+            <input type="text" placeholder="Enter Address Link 5" [(ngModel)]="Template.LinkImg5" name="LinkImg5" class="form-control custom-control"
+              required/><br>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-3">
+            <label class="control-label" for="ImgFooter1">Image Footer 1 :</label>
+            <input type="file" accept="image/*" (change)="onChangeFoot1($event)" required><br>
+            <img [src]="Template.ImgFooter1" class="img-responsive" /><br>
+            <!--<img src="data:image/png;base64,{{Img1}}" id="Img1" class="img-responsive"><br>-->
+            <input type="text" placeholder="Enter Address Link Footer 1" [(ngModel)]="Template.LinkImgFoot1" name="LinkImgFoot1" class="form-control custom-control"
+              required/><br>
+          </div>
+
+          <div class="col-lg-3">
+            <label class="control-label" for="ImgFooter2">Image Footer 2 :</label>
+            <input type="file" accept="image/*" (change)="onChangeFoot2($event)" required><br>
+            <img [src]="Template.ImgFooter2" class="img-responsive" /><br>
+            <!--<img src="data:image/png;base64,{{Img1}}" id="Img1" class="img-responsive"><br>-->
+            <input type="text" placeholder="Enter Address Link Footer 2" [(ngModel)]="Template.LinkImgFoot2" name="LinkImgFoot2" class="form-control custom-control"
+              required/><br>
+          </div>
+
+          <div class="col-lg-3">
+            <label class="control-label" for="ImgFooter3">Image Footer 3 :</label>
+            <input type="file" accept="image/*" (change)="onChangeFoot3($event)" required><br>
+            <img [src]="Template.ImgFooter3" class="img-responsive" /><br>
+            <!--<img src="data:image/png;base64,{{Img1}}" id="Img1" class="img-responsive"><br>-->
+            <input type="text" placeholder="Enter Address Link Footer 3" [(ngModel)]="Template.LinkImgFoot3" name="LinkImgFoot3" class="form-control custom-control"
+              required/><br>
+          </div>
+
+          <div class="col-lg-3">
+            <label class="control-label" for="ImgFooter4">Image Footer 4 :</label>
+            <input type="file" accept="image/*" (change)="onChangeFoot4($event)" required><br>
+            <img [src]="Template.ImgFooter4" class="img-responsive" /><br>
+            <!--<img src="data:image/png;base64,{{Img1}}" id="Img1" class="img-responsive"><br>-->
+            <input type="text" placeholder="Enter Address Link Footer 4" [(ngModel)]="Template.LinkImgFoot4" name="LinkImgFoot4" class="form-control custom-control"
+              required/><br>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button type="button" id="save" class="btn btn-success" (click)="modal.open()">SAVE</button>
+
+        <button type="button" id="back" class="btn btn-primary" (click)="onBack()">BACK</button>
+      </div>
+
+      <modal #myModal>
+        <modal-header [show-close]="true">
+          <h4 class="modal-title">Warning !!</h4>
+        </modal-header>
+        <modal-body>
+          Do you want Insert Data : {{Template.Code}}
+        </modal-body>
+        <modal-footer>
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.dismiss()">Cancel</button>
+          <button type="button" class="btn btn-primary" (click)="save()">SAVE</button>
+        </modal-footer>
+      </modal>
+
+      <modal #ModalRequired>
+        <modal-header [show-close]="true">
+          <h4 class="modal-title">Warning !!</h4>
+        </modal-header>
+        <modal-body>
+          Please Enter Required Data !!
+        </modal-body>
+        <modal-footer>
+          <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+        </modal-footer>
+      </modal>
+
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container-fluid -->
