@@ -1,31 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../environments/environment';
 import { Subscription } from 'rxjs';
+import { SendingService } from './sending.service';
 
 
 @Component({
   selector: 'app-sending',
   templateUrl: './sending.component.html',
-  styleUrls: ['./sending.component.css']
+  styleUrls: ['./sending.component.css'],
+  providers: [ SendingService ]
 })
 export class SendingComponent implements OnInit {
 
-  private _data: Observable<any[]>;
-  private _dataHotelInfo: Observable<any[]>;
-  private _ArnomaMarket: Observable<any[]>;
-  private _ArnomaRateplan: Observable<any[]>;
-  private _ArnomaStatus: Observable<any[]>;
-  private _ArnomaPreference: Observable<any[]>;
-  private _ArnomaFloor: Observable<any[]>;
+  private _data;
+  private _ArnomaMarket;
+  private _ArnomaRateplan;
+  private _ArnomaStatus;
+  private _ArnomaPreference;
+  private _ArnomaFloor;
   private Filter;
   private User;
   busy: Subscription[];
 
-  constructor(private _http: Http, private router: Router) {
+  constructor(private router: Router, private SendingService: SendingService) {
     this.Filter = {
       Template: '',
       DateArr: '',
@@ -59,6 +59,7 @@ export class SendingComponent implements OnInit {
   }
 
   getTemplate() {
+<<<<<<< HEAD
     return this._http.get(`${environment.apiUrl}/api/EmailTemplate`)
       .subscribe(
       data => this._data = data.json(),
@@ -110,6 +111,65 @@ export class SendingComponent implements OnInit {
       err => this.logError(err),
       () => console.log("getArnomaFloor")
       );
+=======
+    this.busy = this.SendingService.getTemplate().subscribe(
+      data => {
+        this._data = data;
+      },
+      err => {
+        console.log(err);
+      });
+  }
+
+  getArnomaMarket() {
+    this.busy = this.SendingService.getArnomaMarket().subscribe(
+      data => {
+        this._ArnomaMarket = data;
+      },
+      err => {
+        console.log(err);
+      });
+  }
+
+  getArnomaRateplan() {
+    this.busy = this.SendingService.getArnomaRateplan().subscribe(
+      data => {
+        this._ArnomaRateplan = data;
+      },
+      err => {
+        console.log(err);
+      });
+  }
+
+  getArnomaStatus() {
+    this.busy = this.SendingService.getArnomaStatus().subscribe(
+      data => {
+        this._ArnomaStatus = data;
+      },
+      err => {
+        console.log(err);
+      });
+  }
+
+  getArnomaPreference() {
+    this.busy =  this.SendingService.getArnomaPreference().subscribe(
+      data => {
+        this._ArnomaPreference = data;
+      },
+      err => {
+        console.log(err);
+      });
+  }
+
+  getArnomaFloor() {
+    this.busy = this.SendingService.getArnomaFloor().subscribe(
+      data => {
+        this._ArnomaFloor = data;
+      },
+      err => {
+        console.log(err);
+      });
+>>>>>>> 447c038874719f8b45468472baa56261b6b37d24
   }
 
   logError(err: string) {
@@ -121,6 +181,7 @@ export class SendingComponent implements OnInit {
   }
 
   ngOnInit() {
+<<<<<<< HEAD
     // this.busy = this.getTemplate();
     // this.busy = this.getArnomaMarket();
     // this.busy = this.getArnomaRateplan();
@@ -130,6 +191,14 @@ export class SendingComponent implements OnInit {
 
     // Parallel
     this.process();    
+=======
+    this.getTemplate();
+    this.getArnomaMarket();
+    this.getArnomaRateplan();
+    this.getArnomaStatus();
+    this.getArnomaPreference();
+    this.getArnomaFloor();
+>>>>>>> 447c038874719f8b45468472baa56261b6b37d24
   }
 
 }
