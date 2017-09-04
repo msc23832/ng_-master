@@ -23,7 +23,7 @@ export class SendingComponent implements OnInit {
   private _ArnomaFloor;
   private Filter;
   private User;
-  busy: Subscription[];
+  busy: Subscription;
 
   constructor(private router: Router, private SendingService: SendingService) {
     this.Filter = {
@@ -59,59 +59,6 @@ export class SendingComponent implements OnInit {
   }
 
   getTemplate() {
-<<<<<<< HEAD
-    return this._http.get(`${environment.apiUrl}/api/EmailTemplate`)
-      .subscribe(
-      data => this._data = data.json(),
-      err => this.logError(err),
-      () => console.log('GetEmailTemplate')
-      );
-  }
-
-  getArnomaMarket() {
-    return this._http.get(`${environment.apiUrl}/api/SendEmail/market`)
-      .subscribe(
-      data => this._ArnomaMarket = data.json(),
-      err => this.logError(err),
-      () => console.log('getArnomaMarket')
-      );
-  }
-
-  getArnomaRateplan() {
-    return this._http.get(`${environment.apiUrl}/api/SendEmail/rateplan`)
-      .subscribe(
-      data => this._ArnomaRateplan = data.json(),
-      err => this.logError(err),
-      () => console.log("getArnomaRateplan")
-      );
-  }
-
-  getArnomaStatus() {
-    return this._http.get(`${environment.apiUrl}/api/SendEmail/status`)
-      .subscribe(
-      data => this._ArnomaStatus = data.json(),
-      err => this.logError(err),
-      () => console.log("getArnomaStatus")
-      );
-  }
-
-  getArnomaPreference() {
-    return this._http.get(`${environment.apiUrl}/api/SendEmail/preference`)
-      .subscribe(
-      data => this._ArnomaPreference = data.json(),
-      err => this.logError(err),
-      () => console.log("getArnomaPreference")
-      );
-  }
-
-  getArnomaFloor() {
-    return this._http.get(`${environment.apiUrl}/api/SendEmail/floor`)
-      .subscribe(
-      data => this._ArnomaFloor = data.json(),
-      err => this.logError(err),
-      () => console.log("getArnomaFloor")
-      );
-=======
     this.busy = this.SendingService.getTemplate().subscribe(
       data => {
         this._data = data;
@@ -169,7 +116,7 @@ export class SendingComponent implements OnInit {
       err => {
         console.log(err);
       });
->>>>>>> 447c038874719f8b45468472baa56261b6b37d24
+
   }
 
   logError(err: string) {
@@ -181,7 +128,7 @@ export class SendingComponent implements OnInit {
   }
 
   ngOnInit() {
-<<<<<<< HEAD
+
     // this.busy = this.getTemplate();
     // this.busy = this.getArnomaMarket();
     // this.busy = this.getArnomaRateplan();
@@ -191,14 +138,9 @@ export class SendingComponent implements OnInit {
 
     // Parallel
     this.process();    
-=======
-    this.getTemplate();
-    this.getArnomaMarket();
-    this.getArnomaRateplan();
-    this.getArnomaStatus();
-    this.getArnomaPreference();
-    this.getArnomaFloor();
->>>>>>> 447c038874719f8b45468472baa56261b6b37d24
+
+    
+
   }
 
 }
