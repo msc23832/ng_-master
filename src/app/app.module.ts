@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BusyModule } from 'angular2-busy';
 import { NvD3Module } from 'ng2-nvd3';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+import { OnlyNumber } from './onlynumber.directive';
 // d3 and nvd3 should be included somewhere
 import 'd3';
 import 'nvd3';
@@ -63,7 +64,8 @@ import { EmailStatusComponent } from './email-status/email-status.component';
     LoginComponent,
     HomeComponent,
     SendingcompleteComponent,
-    EmailStatusComponent
+    EmailStatusComponent,
+    OnlyNumber
   ],
   imports: [
     BrowserModule,

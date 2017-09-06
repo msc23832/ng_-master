@@ -6,6 +6,7 @@ import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { environment } from '../../environments/environment';
 import { NewsysemailService } from './newsysemail.service';
 
+
 @Component({
   selector: 'app-newsysemail',
   templateUrl: './newsysemail.component.html',
@@ -34,8 +35,18 @@ export class NewsysemailComponent implements OnInit {
     };
   }
 
+  _keyPress(event: any) {
+    const pattern = /[0-9\ ]/;
+    let inputChar = String.fromCharCode(event.charCode);
+
+    if (!pattern.test(inputChar)) {
+      // invalid character, prevent input
+      event.preventDefault();
+    }
+  }
+
   save() {
-    if ((this.Syse.Host != '') && (this.Syse.Port != '') && (this.Syse.Proxy != '') && (this.Syse.Detail != '') && (this.Syse.Email != '') && (this.Syse.Password != '')) {
+    if ((this.Syse.Host != '') && (this.Syse.Port != '') && (this.Syse.Detail != '') && (this.Syse.Email != '') && (this.Syse.Password != '')) {
       this.NewsysemailService.getData(this.Syse).subscribe(
         data => {
           this._checkdup = data[0];

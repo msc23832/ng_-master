@@ -40,6 +40,16 @@ export class EditsysemailComponent implements OnInit {
     };
   }
 
+  _keyPress(event: any) {
+    const pattern = /[0-9\ ]/;
+    let inputChar = String.fromCharCode(event.charCode);
+
+    if (!pattern.test(inputChar)) {
+      // invalid character, prevent input
+      event.preventDefault();
+    }
+  }
+
   onBack() {
     this.router.navigate(['sysemail']);
   }
@@ -49,7 +59,7 @@ export class EditsysemailComponent implements OnInit {
   }
 
   save(ID) {
-    if ((this.data.Host != '') && (this.data.Port != '') && (this.data.Proxy != '') && (this.data.Detail != '') && (this.data.Email != '') && (this.data.Password != '')) {
+    if ((this.data.Host != '') && (this.data.Port != '') && (this.data.Detail != '') && (this.data.Email != '') && (this.data.Password != '')) {
       console.log(ID);
       console.log(this.data);
       this.EditsysemailService.getDuplicate(ID, this.data).subscribe(

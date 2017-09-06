@@ -137,10 +137,7 @@ export class SendingComponent implements OnInit {
     // this.busy = this.getArnomaFloor();
 
     // Parallel
-    this.process();    
-
-    
-
+    this.process();
   }
 
 }
