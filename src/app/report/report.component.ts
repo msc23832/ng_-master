@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../environments/environment';
 import { Subscription } from 'rxjs';
+import { ReportService } from './report.service';
 
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
-  styleUrls: ['./report.component.css']
+  styleUrls: ['./report.component.css'],
+  providers: [ ReportService ]
 })
 export class ReportComponent implements OnInit {
 
@@ -23,7 +24,7 @@ export class ReportComponent implements OnInit {
   private Filter;
    busy: Subscription;
 
-  constructor(private _http: Http, private router: Router) {
+  constructor(private router: Router, private ReportService: ReportService) {
     this.Filter = {
       Template: '',
       DateArr: '',
@@ -48,66 +49,77 @@ export class ReportComponent implements OnInit {
   }
 
   getTemplate() {
-    return this._http.get(`${environment.apiUrl}/api/EmailTemplate`)
-      .subscribe(
-      data => this._data = data.json(),
-      err => this.logError(err),
-      () => console.log('GetEmailTemplate')
-      );
+    this.busy = this.ReportService.getTemplate().subscribe(
+      data => {
+        this._data = data;
+      },
+      err => {
+        console.log(err);
+      });
   }
 
   getArnomaMarket() {
-    return this._http.get(`${environment.apiUrl}/api/SendEmail/market`)
-      .subscribe(
-      data => this._ArnomaMarket = data.json(),
-      err => this.logError(err),
-      () => console.log()
-      );
+    this.busy = this.ReportService.getArnomaMarket().subscribe(
+      data => {
+        this._ArnomaMarket = data;
+      },
+      err => {
+        console.log(err);
+      });
   }
 
   getArnomaRateplan() {
-    return this._http.get(`${environment.apiUrl}/api/SendEmail/rateplan`)
-      .subscribe(
-      data => this._ArnomaRateplan = data.json(),
-      err => this.logError(err),
-      () => console.log()
-      );
+    this.busy = this.ReportService.getArnomaRateplan().subscribe(
+      data => {
+        this._ArnomaRateplan = data;
+      },
+      err => {
+        console.log(err);
+      });
   }
 
   getArnomaStatus() {
-    return this._http.get(`${environment.apiUrl}/api/SendEmail/status`)
-    .subscribe(
-      data => this._ArnomaStatus = data.json(),
-      err => this.logError(err),
-      () => console.log()
-    );
+    this.busy = this.ReportService.getArnomaStatus().subscribe(
+      data => {
+        this._ArnomaStatus = data;
+      },
+      err => {
+        console.log(err);
+      });
   }
 
   getArnomaPreference() {
-    return this._http.get(`${environment.apiUrl}/api/SendEmail/preference`)
-    .subscribe(
-      data => this._ArnomaPreference = data.json(),
-      err => this.logError(err),
-      () => console.log()
-    );
+    this.busy = this.ReportService.getArnomaPreference().subscribe(
+      data => {
+        this._ArnomaPreference = data;
+      },
+      err => {
+        console.log(err);
+      });
   }
 
   getArnomaFloor() {
-    return this._http.get(`${environment.apiUrl}/api/SendEmail/floor`)
-    .subscribe(
-      data => this._ArnomaFloor = data.json(),
-      err => this.logError(err),
-      () => console.log()
-    );
+    this.busy = this.ReportService.getArnomaFloor().subscribe(
+      data => {
+        this._ArnomaFloor = data;
+      },
+      err => {
+        console.log(err);
+      });
   }
 
   getDataUser() {
-    return this._http.get(`${environment.apiUrl}/api/Users`)
-      .subscribe(
-      data => this._dataUser = data.json(),
-      err => this.logError(err),
-      () => console.log()
-      );
+    this.busy = this.ReportService.getDataUser().subscribe(
+      data => {
+        this._dataUser = data;
+      },
+      err => {
+        console.log(err);
+      });
+  }
+
+  process(){
+    return Promise.all([this.getTemplate(), this.getArnomaMarket(), this.getArnomaRateplan(),this.getArnomaStatus(),this.getArnomaPreference(),this.getArnomaFloor(),this.getDataUser()]);
   }
 
   logError(err: string) {
@@ -115,13 +127,14 @@ export class ReportComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.busy = this.getTemplate();
-    this.busy = this.getArnomaMarket();
-    this.busy = this.getArnomaRateplan();
-    this.busy = this.getArnomaStatus();
-    this.busy = this.getArnomaPreference();
-    this.busy = this.getArnomaFloor();
-    this.busy = this.getDataUser();
+    // this.busy = this.getTemplate();
+    // this.busy = this.getArnomaMarket();
+    // this.busy = this.getArnomaRateplan();
+    // this.busy = this.getArnomaStatus();
+    // this.busy = this.getArnomaPreference();
+    // this.busy = this.getArnomaFloor();
+    // this.busy = this.getDataUser();
+    this.process();
   }
 
 }

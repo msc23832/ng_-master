@@ -122,9 +122,9 @@ export class SendingComponent implements OnInit {
   logError(err: string) {
     console.error('There was an error: ' + err);
   }
+  
   process(){
     return Promise.all([this.getTemplate(), this.getArnomaMarket(), this.getArnomaRateplan(),this.getArnomaStatus(),this.getArnomaPreference(),this.getArnomaFloor()]);
-
   }
 
   ngOnInit() {
