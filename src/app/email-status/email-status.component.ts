@@ -15,11 +15,18 @@ export class EmailStatusComponent implements OnInit {
   allTask: Task[] = [];
   private timerSubscription: AnonymousSubscription;
   private postsSubscription: AnonymousSubscription;
+  messageData=[];
   constructor(private _data: SendUpdateService, private _router: Router) { }
 
 
   ngOnInit() {
-    this.refreshData();
+    this._data.getupdate().subscribe((message)=>{
+      this.messageData.push(message);
+      ///console.log(this.messageData);
+    });
+
+    this._data.sendMessage('test');
+    //this.refreshData();
   }
 
   public ngOnDestroy(): void {
