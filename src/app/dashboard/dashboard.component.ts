@@ -61,10 +61,10 @@ export class DashboardComponent implements OnInit {
   }
 
   ReportTemplate() {
-    if (localStorage.getItem('token')) {
-      this.User = JSON.parse(localStorage.getItem('token'));
-      this.Filter.User = this.User[0].User;
-    }
+    // if (localStorage.getItem('token')) {
+    //   this.User = JSON.parse(localStorage.getItem('token'));
+    //   this.Filter.User = this.User[0].User;
+    // }
 
     this.Filter.DateArr = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     this.Filter.DateDep = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
