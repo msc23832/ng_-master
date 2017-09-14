@@ -38,6 +38,7 @@ import { LoginService } from './login/login.service';
 import { HomeComponent } from './home/home.component';
 import { SendingcompleteComponent } from './sendingcomplete/sendingcomplete.component';
 import { EmailStatusComponent } from './email-status/email-status.component';
+import { SendingpreviewComponent } from './sendingpreview/sendingpreview.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { EmailStatusComponent } from './email-status/email-status.component';
     HomeComponent,
     SendingcompleteComponent,
     EmailStatusComponent,
-    OnlyNumber
+    OnlyNumber,
+    SendingpreviewComponent
   ],
   imports: [
     BrowserModule,

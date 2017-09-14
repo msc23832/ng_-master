@@ -1,0 +1,140 @@
+<!-- Page Content -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div [ngBusy]="busy">
+        <h2 *ngFor="let data of _HotelInfo" class="page-header">Email Template : {{ data.Name }}</h2>
+
+
+        <div *ngFor="let Template of _dataTemplate">
+
+          <div style="border-spacing:0;width:600px !important;height:100% !important;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;background-color:#F0F0F0;color:#000000;max-width:600px;"
+            bgcolor="#F0F0F0" text="#000000">
+
+            <table width="600px" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse !important;border-spacing:0;margin:0;padding:0;width:600px;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;">
+              <tbody>
+                <tr>
+                  <td align="center" valign="top" style="border-collapse:collapse !important;border-spacing:0;margin:0;padding:0;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;"
+                    bgcolor="#F0F0F0">
+                    <table border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#FFFFFF" width="600" style="border-collapse:collapse !important;border-spacing:0;padding:0;width:inherit;max-width:560px;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;border-radius:8px;-webkit-border-radius:8px;-moz-border-radius:8px;-khtml-border-radius:8px;">
+                      <tbody>
+                        <tr>
+                          <td align="center" valign="top" style="border-collapse:collapse !important;border-spacing:0;margin:0;padding:0;padding-left:6.25%;padding-right:6.25%;width:87.5%;font-size:24px;font-weight:bold;line-height:100%;padding-top:10px;color:#000000;font-family:sans-serif;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                            <a target="_blank" style="text-decoration:none;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;color:#127DB3;"
+                              href="http://www.arnoma.com/">
+            
+                            <img border="0" vspace="0" hspace="0" *ngFor="let data of _HotelInfo" src="{{data.Logo}}" width="130px" height="110px" alt="Logo" title="Logo" style="color:#000000;font-size:10px;margin:0;padding:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;border:0;display:block;line-height:100%;" />
+                          </a>
+
+                            <div> {{Template.Topics}} </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="center" valign="top" style="border-collapse:collapse !important;border-spacing:0;margin:0;padding:0;padding-top:20px;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                            <a href="{{Template.LinkImg1}}"> <img border="0" vspace="0" hspace="0" src="{{Template.Img1}}" alt="Please enable images to view this content" title="Hero Image" width="560" style="width:100%;max-width:560px;color:#000000;font-size:13px;margin:0;padding:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;border:0;display:block;line-height:100%;" /> </a>                            </td>
+                        </tr>
+                        <tr>
+                          <td align="center" valign="top" style="border-collapse:collapse !important;border-spacing:0;margin:0;padding:0;padding-left:6.25%;padding-right:6.25%;width:87.5%;font-size:17px;font-weight:400;line-height:100%;padding-top:25px;color:#000000;font-family:sans-serif;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                            {{Template.Message1}}
+                          </td>
+                        </tr>
+                        <!-- LINE -->
+                        <!-- Set line color -->
+                        <tr>
+                          <td align="center" valign="top" style="border-collapse:collapse !important;border-spacing:0;margin:0;padding:0;padding-left:6.25%;padding-right:6.25%;width:87.5%;padding-top:25px;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                            <hr color="#E0E0E0" align="center" width="100%" size="1" noshade="" style="margin: 0; padding: 0;" /> </td>
+                        </tr>
+                        <tr>
+                          <td align="center" valign="top" style="border-collapse:collapse !important;border-spacing:0;margin:0;padding:0;padding-left:6.25%;padding-right:6.25%;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                            <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:inherit;margin:0;padding:0;border-collapse:collapse !important;border-spacing:0;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                              <tbody>
+                                <tr>
+                                  <td align="left" valign="top" style="border-collapse:collapse !important;border-spacing:0;padding-top:30px;padding-right:20px;font-size:15px;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;font-family:sans-serif;"><b style="color: #333333;">Highly compatible</b><br /> {{Template.Message2}} <b style="color: #333333;">Designer friendly</b><br
+                                    /> Sketch app resource file and a&nbsp;bunch of&nbsp;social media icons are&nbsp;also
+                                    included in&nbsp;GitHub repository. </td>
+                                  <!-- LIST ITEM TEXT -->
+                                  <!-- Set text color and font family ("sans-serif" or "Georgia, serif"). Duplicate all text styles in links, including line-height -->
+                                </tr>
+                                <!-- LIST ITEM -->
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <!-- LINE -->
+                        <!-- Set line color -->
+                        <tr>
+                          <td align="center" valign="top" style="border-collapse:collapse !important;border-spacing:0;margin:0;padding:0;padding-left:6.25%;padding-right:6.25%;width:87.5%;padding-top:25px;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                            <hr color="#E0E0E0" align="center" width="100%" size="1" noshade="" style="margin: 0; padding: 0;" /> </td>
+                        </tr>
+                        <!-- PARAGRAPH -->
+                        <!-- Set text color and font family ("sans-serif" or "Georgia, serif"). Duplicate all text styles in links, including line-height -->
+                        <tr>
+                          <td align="center" valign="top" style="border-collapse:collapse !important;border-spacing:0;margin:0;padding:0;padding-left:6.25%;padding-right:6.25%;width:87.5%;font-size:17px;font-weight:400;line-height:100%;padding-top:20px;padding-bottom:25px;color:#000000;font-family:sans-serif;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                            <div>
+                              <span style="border-collapse:collapse !important;border-spacing:0;padding-top:30px;padding-right:20px;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                              <a href="{{Template.LinkImg2}}"><img border="0" vspace="0" hspace="0" style="padding:0;margin:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;border:0;display:reletive;color:#000000;line-height:100%;" src="{{Template.Img2}}" alt="D" title="Designer friendly" width="100" height="100" /></a>
+                              <a href="{{Template.LinkImg3}}"><img border="0" vspace="0" hspace="0" style="padding:0;margin:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;border:0;display:reletive;color:#000000;line-height:100%;" src="{{Template.Img3}}" alt="H" title="Highly compatible" width="100" height="100" /></a>
+                              <a href="{{Template.LinkImg4}}"><img border="0" vspace="0" hspace="0" style="padding:0;margin:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;border:0;display:reletive;color:#000000;line-height:100%;" src="{{Template.Img4}}" alt="H" title="Highly compatible" width="100" height="100" /></a>
+                              <a href="{{Template.LinkImg5}}"><img border="0" vspace="0" hspace="0" style="padding:0;margin:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;border:0;display:reletive;color:#000000;line-height:100%;" src="{{Template.Img5}}" alt="H" title="Highly compatible" width="100" height="100" /></a>
+                            </span>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table border="0" cellpadding="0" cellspacing="0" align="center" width="600px" style="border-collapse:collapse !important;border-spacing:0;padding:0;width:inherit;max-width:600px;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                      <!-- SOCIAL NETWORKS -->
+                      <!-- Image text color should be opposite to background color. Set your url, image src, alt and title. Alt text should fit the image size. Real image size should be x2 -->
+                      <tbody>
+                        <tr>
+                          <td align="center" valign="top" style="border-collapse:collapse !important;border-spacing:0;margin:0;padding:0;padding-left:6.25%;padding-right:6.25%;width:87.5%;padding-top:25px;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                            <table width="256" border="0" cellpadding="0" cellspacing="0" align="center" style="border-collapse:collapse !important;border-spacing:0;padding:0;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                              <tbody>
+                                <tr>
+                                  <!-- ICON 1 -->
+                                  <td align="center" valign="middle" style="margin:0;padding:0;padding-left:10px;padding-right:10px;border-collapse:collapse !important;border-spacing:0;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                                    <a target="_blank" href="{{Template.LinkImgFoot1}}" style="text-decoration:none;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;color:#127DB3;"> <img border="0" vspace="0" hspace="0" style="padding:0;margin:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;border:0;display:inline-block;color:#000000;line-height:100%;" alt="F" title="Facebook" width="44" height="44" src="{{Template.ImgFooter1}}" /> </a>                                    </td>
+                                  <!-- ICON 2 -->
+                                  <td align="center" valign="middle" style="margin:0;padding:0;padding-left:10px;padding-right:10px;border-collapse:collapse !important;border-spacing:0;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;"><a target="_blank" href="{{Template.LinkImgFoot2}}" style="text-decoration:none;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;color:#127DB3;"><img border="0" vspace="0" hspace="0" style="padding:0;margin:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;border:0;display:inline-block;color:#000000;line-height:100%;" alt="T" title="Twitter" width="44" height="44" src="{{Template.ImgFooter2}}" /></a></td>
+                                  <!-- ICON 3 -->
+                                  <td align="center" valign="middle" style="margin:0;padding:0;padding-left:10px;padding-right:10px;border-collapse:collapse !important;border-spacing:0;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;"><a target="_blank" href="{{Template.LinkImgFoot3}}" style="text-decoration:none;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;color:#127DB3;"><img border="0" vspace="0" hspace="0" style="padding:0;margin:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;border:0;display:inline-block;color:#000000;line-height:100%;" alt="G" title="Google Plus" width="44" height="44" src="{{Template.ImgFooter3}}" /></a></td>
+                                  <!-- ICON 4 -->
+                                  <td align="center" valign="middle" style="margin:0;padding:0;padding-left:10px;padding-right:10px;border-collapse:collapse !important;border-spacing:0;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;"><a target="_blank" href="{{Template.LinkImgFoot4}}" style="text-decoration:none;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;color:#127DB3;"><img border="0" vspace="0" hspace="0" style="padding:0;margin:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;border:0;display:inline-block;color:#000000;line-height:100%;" alt="I" title="Instagram" width="44" height="44" src="{{Template.ImgFooter4}}" /></a></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <!-- FOOTER -->
+                        <tr>
+                          <td *ngFor="let data of _HotelInfo" align="center" valign="top" style="border-collapse:collapse !important;border-spacing:0;margin:0;padding:0;padding-left:6.25%;padding-right:6.25%;width:87.5%;font-size:13px;font-weight:400;line-height:100%;padding-top:20px;padding-bottom:20px;color:#999999;font-family:sans-serif;-webkit-font-smoothing:antialiased;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                            {{data.Address}}
+                            <!-- ANALYTICS --><img width="1" height="1" border="0" vspace="0" hspace="0" style="margin:0;padding:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;border:0;display:block;line-height:100%;"
+                              src="https://raw.githubusercontent.com/konsav/email-templates/master/images/tracker.png" /> </td>
+                        </tr>
+                        <!-- End of WRAPPER -->
+                      </tbody>
+                    </table>
+                    <!-- End of SECTION / BACKGROUND -->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+
+          </div>
+
+          <div class="form-group">
+            <button type="button" id="back" class="btn btn-primary" (click)="onBack(Template.IDEmailTemplate)">BACK</button>
+            <!--<button type="button" id="back" class="btn btn-success" (click)="back(Template.IDEmailTemplate)">BACK</button>-->
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container-fluid -->

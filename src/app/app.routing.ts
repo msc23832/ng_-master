@@ -23,6 +23,8 @@ import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
 import { HomeComponent } from './home/home.component';
 import { SendingcompleteComponent } from './sendingcomplete/sendingcomplete.component';
+import { SendingpreviewComponent } from './sendingpreview/sendingpreview.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent , canActivate: [LoginService],
@@ -45,6 +47,7 @@ const appRoutes: Routes = [
       { path: 'sendingtemplate', component: SendingtemplateComponent },
       { path: 'reporttemplate', component: ReporttemplateComponent },
       { path: 'sendingcomplete', component: SendingcompleteComponent },
+      { path: 'sendingpreview/:ID', component: SendingpreviewComponent }
     ]
   },
   // เมื่อเข้าถึง /pages
