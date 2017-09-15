@@ -32,7 +32,7 @@
                 <td>{{data.firstname}}</td>
                 <td>{{data.arrival}}</td>
                 <td>{{data.departure}}</td>
-                <td align="center" valign="middle"><a href="#" [routerLink]="['/sendingpreview', data.ID ]"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></td>
+                <td align="center" valign="middle"><a (click)="SendingPreview(i)"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></td>
               </tr>
             </tbody>
           </table>

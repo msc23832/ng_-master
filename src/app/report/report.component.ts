@@ -41,7 +41,8 @@ export class ReportComponent implements OnInit {
   search() {
     let filterreport: Array<any> = [];
     if (localStorage.getItem('FilterReport')) {
-      filterreport = JSON.parse(localStorage.getItem('FilterReport'));
+      localStorage.removeItem('FilterReport');
+      //filterreport = JSON.parse(localStorage.getItem('FilterReport'));
     }
     filterreport.push(this.Filter);
     localStorage.setItem('FilterReport', JSON.stringify(filterreport));

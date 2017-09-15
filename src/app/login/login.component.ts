@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.Login);
+    //console.log(this.Login);
     if ((this.Login.User != '') && (this.Login.Password != '')) {
       this.LoginService.loadItem(this.Login).subscribe(
         data => {

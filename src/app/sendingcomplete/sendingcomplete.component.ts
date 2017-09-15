@@ -37,12 +37,12 @@ export class SendingcompleteComponent implements OnInit {
     this.resend.IDSendEmail = ID;
     this.resend.Email = Email;
     this.resend.IDEmailTemplate = this.Filter[0].Template;
-    console.log(this.Filter);
+    //console.log(this.Filter);
     if (localStorage.getItem('token')) {
       this.Filter = JSON.parse(localStorage.getItem('token'));
       this.resend.User = this.Filter[0].User;
     }
-    console.log(this.resend);
+    //console.log(this.resend);
   }
 
   onSendEmail() {
@@ -56,17 +56,6 @@ export class SendingcompleteComponent implements OnInit {
       err => {
         console.log(err);
       });
-
-
-    // let headers = new Headers({ 'Content-Type': 'application/json' });
-    // this._http.post(`${environment.apiUrl}/api/SendEmail/resend`, JSON.stringify(this.resend), { headers: headers }).subscribe(function (data) {
-    //   // login successful if there's a jwt token in the response
-    //   console.log('received response');
-    //   console.log('Waiting For SendEmail');
-    //   //location.reload();
-    // });
-    // this.modal.close();
-    // this.getEmailSending();
   }
 
   onBack() {
@@ -78,17 +67,11 @@ export class SendingcompleteComponent implements OnInit {
     this.busy = this.SendingcompleteService.getEmailSending().subscribe(
       data => {
         this._EmailSending = data;
-        console.log(this._EmailSending);
+        //console.log(this._EmailSending);
       },
       err => {
         console.log(err);
       });
-    // return this._http.get(`${environment.apiUrl}/api/SendEmail`)
-    //   .subscribe(
-    //   data => this._EmailSending = data.json(),
-    //   err => this.logError(err),
-    //   () => console.log()
-    //   );
   }
 
   logError(err: string) {
@@ -99,7 +82,7 @@ export class SendingcompleteComponent implements OnInit {
     this.getEmailSending();
     if (localStorage.getItem('Filter')) {
       this.Filter = JSON.parse(localStorage.getItem('Filter'));
-      console.log(this.Filter);
+      //console.log(this.Filter);
     }
   }
 

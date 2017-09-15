@@ -60,8 +60,8 @@ export class EditsysemailComponent implements OnInit {
 
   save(ID) {
     if ((this.data.Host != '') && (this.data.Port != '') && (this.data.Detail != '') && (this.data.Email != '') && (this.data.Password != '')) {
-      console.log(ID);
-      console.log(this.data);
+      //console.log(ID);
+      //console.log(this.data);
       this.EditsysemailService.getDuplicate(ID, this.data).subscribe(
         data => {
           this._checkdup = data[0];

@@ -44,7 +44,7 @@ export class InfoComponent implements OnInit {
   }
 
   update() {
-    console.log(this.HotelInfo[0]);
+    //console.log(this.HotelInfo[0]);
     this.InfoService.saveData(this.HotelInfo[0]).subscribe(
       data => {
         this.updatemodal.close();

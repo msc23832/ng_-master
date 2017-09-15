@@ -44,12 +44,12 @@ export class ReporttemplateComponent implements OnInit {
   }
 
   sendFilter() {
-    console.log(JSON.stringify(this.Filter[0]));
+    //console.log(JSON.stringify(this.Filter[0]));
     let headers = new Headers({ 'Content-Type': 'application/json' });
     return this._http.post(`${environment.apiUrl}/api/Report/`, JSON.stringify(this.Filter[0]), { headers: headers }).subscribe(
       data => this._EmailSending = data.json(),
       err => this.logError(err),
-      () => console.log(this._EmailSending)
+      () => console.log()//console.log(this._EmailSending)
     );
   }
 
@@ -100,12 +100,12 @@ export class ReporttemplateComponent implements OnInit {
     this.resend.IDSendEmail = ID;
     this.resend.Email = Email;
     this.resend.IDEmailTemplate = this.Filter[0].Template;
-    console.log(this.Filter);
+    //console.log(this.Filter);
     if (localStorage.getItem('token')) {
       this.User = JSON.parse(localStorage.getItem('token'));
       this.resend.User = this.User[0].User;
     }
-    console.log(this.resend);
+    //console.log(this.resend);
   }
 
   onSendEmail() {

@@ -62,7 +62,7 @@ export class SendingtemplateComponent implements OnInit {
       if (this.EmailSend[i].state == true) {
         this.EmailSend[i].User = this.Filter[0].User;
         this.EmailSend[i].Template = this.Filter[0].Template;
-        console.log(this.EmailSend[i]);
+        //console.log(this.EmailSend[i]);
 
         this.SendingtemplateService.SendEmail(this.EmailSend[i]).subscribe(
           data => {
@@ -88,11 +88,19 @@ export class SendingtemplateComponent implements OnInit {
     this.router.navigate(['sendingcomplete']);
   }
 
+  SendingPreview(ID) {
+    if (localStorage.getItem('FilterUser')) {
+      localStorage.removeItem('FilterUser');
+    }
+    localStorage.setItem('FilterUser', JSON.stringify(this.EmailSend));
+    this.router.navigate(['sendingpreview', ID]);
+  }
+
   getArnoma() {
     this.busy = this.SendingtemplateService.GetArnoma(this.Filter[0]).subscribe(
       data => {
         this.EmailSend = data;
-        console.log(this.EmailSend);
+        //console.log(this.EmailSend);
       },
       err => {
         console.log(err);
@@ -130,7 +138,7 @@ export class SendingtemplateComponent implements OnInit {
       this.Filter = JSON.parse(localStorage.getItem('Filter'));
       //this.busy = this.getTemplate();
       this.getArnoma();
-      console.log(this.Filter);
+      //console.log(this.Filter);
     }
   }
 

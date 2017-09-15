@@ -35,7 +35,7 @@ export class NewusersComponent implements OnInit {
   }
 
   save() {
-    console.log(this.Users);
+    //console.log(this.Users);
     if ((this.Users.user != '') && (this.Users.password != '') && (this.Users.group != '')) {
 
       this.NewusersService.getData(this.Users).subscribe(

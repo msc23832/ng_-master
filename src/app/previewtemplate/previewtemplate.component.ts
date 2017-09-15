@@ -36,9 +36,14 @@ export class PreviewtemplateComponent implements OnInit {
     .subscribe(
       data => this._dataTemplate = data.json(),
       err => this.logError(err),
-      () => console.log('EditEmailTemplate : ' + ID)
+      () => console.log('EditEmailTemplate : ' + ID)//this.Replace()
     );
   }
+
+  // Replace() {
+  //   var Message2Replace = this._dataTemplate[0].Message2;
+  //   this._dataTemplate[0].Message2 = Message2Replace.replace('#br', '<br>');
+  // }
 
   logError(err: string) {
     console.error('There was an error: ' + err);

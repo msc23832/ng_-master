@@ -67,7 +67,6 @@ export class DashboardComponent implements OnInit {
     // }
 
     this.Filter.DateArr = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-    this.Filter.DateDep = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
 
     let filterreport: Array<any> = [];
     if (localStorage.getItem('FilterReport')) {
@@ -125,7 +124,7 @@ export class DashboardComponent implements OnInit {
       data => this.count_send = data.json(),
       err => console.log(err)
       , () => {
-        console.log(this.count_send[0]);
+        //console.log(this.count_send[0]);
         // return only values greater than 1
 
       }
@@ -139,7 +138,7 @@ export class DashboardComponent implements OnInit {
       err => console.log(err),
       () => {
 
-        console.log(this.count_users);
+        //console.log(this.count_users);
       }
       );//subscribe
   }

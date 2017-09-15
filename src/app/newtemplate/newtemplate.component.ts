@@ -84,7 +84,7 @@ export class NewtemplateComponent implements OnInit {
     save() {
         this.Template.Logo = this._HotelInfo[0].Logo;
         this.Template.Address = this._HotelInfo[0].Address;
-        console.log(this.Template);
+        //console.log(this.Template);
         if ((this.Template.Code != '') && (this.Template.Name != '') && (this.Template.IDEmailSystem != '')) {
             this.NewtemplateService.insertData(this.Template).subscribe(
                 data => {

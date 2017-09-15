@@ -99,7 +99,7 @@ export class EditusersComponent implements OnInit {
     return this.EditusersService.getData(ID).subscribe(
       data => {
         this.data = data[0];
-        console.log(this.data);
+        //console.log(this.data);
       },
       err => {
         console.log(err);

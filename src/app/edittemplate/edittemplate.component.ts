@@ -72,7 +72,7 @@ export class EdittemplateComponent implements OnInit {
 
   save(ID) {
     this.setDefaultTemplate();
-    console.log(this.Template);
+    //console.log(this.Template);
     if ((this.Template.Code != '') && (this.Template.Name != '') && (this.Template.IDEmailSystem != '')) {
       this.EdittemplateService.updateData(ID, this.Template).subscribe(
         data => {
@@ -187,7 +187,7 @@ export class EdittemplateComponent implements OnInit {
       this.getHotelInfo();
       this.getSystem();
       this.getData(this.id);
-      console.log(this.Template);
+      //console.log(this.Template);
     });
 
   }

@@ -46,7 +46,8 @@ export class SendingComponent implements OnInit {
   search() {
     let filtersending: Array<any> = [];
     if (localStorage.getItem('Filter')) {
-      filtersending = JSON.parse(localStorage.getItem('Filter'));
+      localStorage.removeItem('Filter');
+      //filtersending = JSON.parse(localStorage.getItem('Filter'));
     }
     if (localStorage.getItem('token')) {
       this.User = JSON.parse(localStorage.getItem('token'));

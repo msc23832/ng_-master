@@ -20,6 +20,7 @@ export class SendingpreviewComponent implements OnInit {
   private Template;
   busy: Subscription;
   private Filter;
+  private FilterUser;
 
   constructor(private _http: Http, private route: ActivatedRoute, private router: Router) {
     this.Filter = {
@@ -49,8 +50,19 @@ export class SendingpreviewComponent implements OnInit {
     .subscribe(
       data => this._dataTemplate = data.json(),
       err => this.logError(err),
-      () => console.log('EditEmailTemplate : ' + ID)
+      () => this.Replace()//console.log(this._dataTemplate)//'EditEmailTemplate : ' + ID)
     );
+  }
+
+  Replace() {
+    if (localStorage.getItem('FilterUser')) {
+      this.FilterUser = JSON.parse(localStorage.getItem('FilterUser'));
+      //console.log(this.FilterUser);
+    }
+    var Message1Replace = this._dataTemplate[0].Message1;
+    this._dataTemplate[0].Message1 = Message1Replace.replace('#customer', `${this.FilterUser[0].firstname}`).replace('#confirm', `${this.FilterUser[0].Confirmation}`);
+    var Message2Replace = this._dataTemplate[0].Message2;
+    this._dataTemplate[0].Message2 = Message2Replace.replace('#arrival', `${this.FilterUser[0].arrival}`).replace('#departure', `${this.FilterUser[0].departure}`).replace('#rate', `${this.FilterUser[0].rsl_rateplan}`).replace('#room', `${this.FilterUser[0].roomtype}`);
   }
 
   logError(err: string) {
@@ -58,15 +70,16 @@ export class SendingpreviewComponent implements OnInit {
   }
 
   onBack(ID) {
+    localStorage.removeItem('FilterUser');
     this.router.navigate(['sendingtemplate']);
   }
 
   ngOnInit() {
     if (localStorage.getItem('Filter')) {
       this.Filter = JSON.parse(localStorage.getItem('Filter'));
-      this.getData(this.Filter.Template);
+      this.getData(this.Filter[0].Template);
       this.getHotelInfo();
-      console.log(this.Filter);
+      //console.log(this.Filter);
     }
   }
 

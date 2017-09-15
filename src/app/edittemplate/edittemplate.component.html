@@ -13,41 +13,57 @@
 
         <form #templateForm="ngForm">
           <div *ngFor="let Template of _dataTemplate">
-            <div class="form-group">
-              <label class="control-label" for="Code">Code :</label> *
-              <input type="text" placeholder="Enter Code" name="code" [(ngModel)]="Template.Code" class="form-control" required/>
-            </div>
-            <div class="form-group">
-              <label class="control-label" for="Name">Name :</label> *
-              <input type="text" placeholder="Enter Name" name="name" [(ngModel)]="Template.Name" class="form-control" required/>
-            </div>
 
-            <div class="form-group">
-              <label class="control-label" for="Topics">Topics :</label>
-              <input type="text" placeholder="Enter Topics" name="topics" [(ngModel)]="Template.Topics" class="form-control custom-control"
+            <div class="col-lg-8">
+              <div class="form-group">
+                <label class="control-label" for="Code">Code :</label> *
+                <input type="text" placeholder="Enter Code" name="code" [(ngModel)]="Template.Code" class="form-control" required/>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="Name">Name :</label> *
+                <input type="text" placeholder="Enter Name" name="name" [(ngModel)]="Template.Name" class="form-control" required/>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label" for="Topics">Topics :</label>
+                <input type="text" placeholder="Enter Topics" name="topics" [(ngModel)]="Template.Topics" class="form-control custom-control"
                 />
-            </div>
+              </div>
 
-            <div class="form-group">
-              <label class="control-label" for="Message1">Message 1 :</label>
-              <textarea class="form-control custom-control" name="message1" placeholder="Enter Message1" rows="4" style="resize:none"
-                [(ngModel)]="Template.Message1" ></textarea>
-            </div>
-            <div class="form-group">
-              <label class="control-label" for="Message2">Message 2 :</label>
-              <textarea class="form-control custom-control" name="message2" placeholder="Enter Message2" rows="4" style="resize:none"
-                [(ngModel)]="Template.Message2" ></textarea>
-            </div>
+              <div class="form-group">
+                <label class="control-label" for="Message1">Message 1 :</label>
+                <textarea class="form-control custom-control" name="message1" placeholder="Enter Message1" rows="4" style="resize:none" [(ngModel)]="Template.Message1"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="Message2">Message 2 :</label>
+                <textarea class="form-control custom-control" name="message2" placeholder="Enter Message2" rows="4" style="resize:none" [(ngModel)]="Template.Message2"></textarea>
+              </div>
 
-            <div class="form-group">
-              <label class="control-label" for="Sender">Email Sender :</label> *
-              <select class="form-control" name="sender" [(ngModel)]="Template.IDEmailSystem" required>
+              <div class="form-group">
+                <label class="control-label" for="Sender">Email Sender :</label> *
+                <select class="form-control" name="sender" [(ngModel)]="Template.IDEmailSystem" required>
                       <option disabled selected value="0">Choose...</option>
                       <option *ngFor="let data of _data" value="{{ data.IDEmailSystem }}">{{ data.Email }}</option>
                   </select>
+              </div>
+
             </div>
 
-            <div class="form-group col-lg-12">
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="control-label" for="notice">Notice Message :</label>
+                <textarea class="form-control custom-control" readonly='true' name="notice" rows="20" style="resize:none">
+#customer = ชื่อลูกค้า
+#arrival = วัน in
+#departure = วัน out
+#confirm = confirm number
+#rate = rate plan
+#room = room type
+                  </textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
               <div class="row">
                 <div class="col-lg-12">
                   <label class="control-label" for="Img1">Image Topics :</label>
@@ -55,7 +71,7 @@
                   <img [src]="Template.Img1" class="img-responsive center-block" /><br>
                   <!--<img src="data:image/png;base64,{{Img1}}" id="Img1" class="img-responsive"><br>-->
                   <input type="text" placeholder="Enter Address Link 1" [(ngModel)]="Template.LinkImg1" name="LinkImg1" class="form-control custom-control"
-                    /><br>
+                  /><br>
                 </div>
               </div>
 
@@ -66,7 +82,7 @@
                   <img [src]="Template.Img2" [class.loaded2]="imageLoaded2" class="img-responsive" /><br>
                   <!--<img src="data:image/png;base64,{{Img2}}" id="Img2" class="img-responsive"><br>-->
                   <input type="text" placeholder="Enter Address Link 2" [(ngModel)]="Template.LinkImg2" name="LinkImg2" class="form-control custom-control"
-                    /><br>
+                  /><br>
                 </div>
 
                 <div class="col-lg-3">
@@ -75,7 +91,7 @@
                   <img [src]="Template.Img3" [class.loaded2]="imageLoaded3" class="img-responsive" /><br>
                   <!--<img src="data:image/png;base64,{{Img2}}" id="Img2" class="img-responsive"><br>-->
                   <input type="text" placeholder="Enter Address Link 3" [(ngModel)]="Template.LinkImg3" name="LinkImg3" class="form-control custom-control"
-                    /><br>
+                  /><br>
                 </div>
                 <div class="col-lg-3">
                   <label class="control-label" for="Img4">Image Body 3 :</label>
@@ -83,7 +99,7 @@
                   <img [src]="Template.Img4" [class.loaded2]="imageLoaded4" class="img-responsive" /><br>
                   <!--<img src="data:image/png;base64,{{Img2}}" id="Img2" class="img-responsive"><br>-->
                   <input type="text" placeholder="Enter Address Link 4" [(ngModel)]="Template.LinkImg4" name="LinkImg4" class="form-control custom-control"
-                    /><br>
+                  /><br>
                 </div>
 
                 <div class="col-lg-3">
@@ -92,12 +108,12 @@
                   <img [src]="Template.Img5" [class.loaded2]="imageLoaded5" class="img-responsive" /><br>
                   <!--<img src="data:image/png;base64,{{Img2}}" id="Img2" class="img-responsive"><br>-->
                   <input type="text" placeholder="Enter Address Link 5" [(ngModel)]="Template.LinkImg5" name="LinkImg5" class="form-control custom-control"
-                    /><br>
+                  /><br>
                 </div>
               </div>
             </div>
 
-            <div class="form-group col-lg-12">
+            <div class="form-group">
               <div class="row">
                 <div class="col-lg-3">
                   <label class="control-label" for="ImgFooter1">Image Footer 1 :</label>
@@ -105,7 +121,7 @@
                   <img [src]="Template.ImgFooter1" [class.loaded1]="imageLoadedFoot1" class="img-responsive" /><br>
                   <!--<img src="data:image/png;base64,{{Img1}}" id="Img1" class="img-responsive"><br>-->
                   <input type="text" placeholder="Enter Address Link Footer 1" [(ngModel)]="Template.LinkImgFoot1" name="LinkImgFoot1" class="form-control custom-control"
-                    /><br>
+                  /><br>
                 </div>
 
                 <div class="col-lg-3">
@@ -114,7 +130,7 @@
                   <img [src]="Template.ImgFooter2" [class.loaded1]="imageLoadedFoot2" class="img-responsive" /><br>
                   <!--<img src="data:image/png;base64,{{Img1}}" id="Img1" class="img-responsive"><br>-->
                   <input type="text" placeholder="Enter Address Link Footer 2" [(ngModel)]="Template.LinkImgFoot2" name="LinkImgFoot2" class="form-control custom-control"
-                    /><br>
+                  /><br>
                 </div>
                 <div class="col-lg-3">
                   <label class="control-label" for="ImgFooter3">Image Footer 3 :</label>
@@ -122,7 +138,7 @@
                   <img [src]="Template.ImgFooter3" [class.loaded1]="imageLoadedFoot3" class="img-responsive" /><br>
                   <!--<img src="data:image/png;base64,{{Img1}}" id="Img1" class="img-responsive"><br>-->
                   <input type="text" placeholder="Enter Address Link Footer 3" [(ngModel)]="Template.LinkImgFoot3" name="LinkImgFoot3" class="form-control custom-control"
-                    /><br>
+                  /><br>
                 </div>
 
                 <div class="col-lg-3">
@@ -131,7 +147,7 @@
                   <img [src]="Template.ImgFooter4" [class.loaded1]="imageLoadedFoot4" class="img-responsive" /><br>
                   <!--<img src="data:image/png;base64,{{Img1}}" id="Img1" class="img-responsive"><br>-->
                   <input type="text" placeholder="Enter Address Link Footer 4" [(ngModel)]="Template.LinkImgFoot4" name="LinkImgFoot4" class="form-control custom-control"
-                    /><br>
+                  /><br>
                 </div>
               </div>
             </div>
