@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 import { NvD3Module } from 'ng2-nvd3';
 import { EmailStatusComponent } from '../email-status/email-status.component';
 import { DatePipe } from '@angular/common';
+import {CountdownComponent} from "../countdown/countdown.component";
 
 declare let d3: any;
 @Component({

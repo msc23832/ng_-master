@@ -39,6 +39,7 @@ import { HomeComponent } from './home/home.component';
 import { SendingcompleteComponent } from './sendingcomplete/sendingcomplete.component';
 import { EmailStatusComponent } from './email-status/email-status.component';
 import { SendingpreviewComponent } from './sendingpreview/sendingpreview.component';
+import { CountdownComponent } from './countdown/countdown.component';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { SendingpreviewComponent } from './sendingpreview/sendingpreview.compone
     SendingcompleteComponent,
     EmailStatusComponent,
     OnlyNumber,
-    SendingpreviewComponent
+    SendingpreviewComponent,
+    CountdownComponent
   ],
   imports: [
     BrowserModule,
