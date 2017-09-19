@@ -92,7 +92,7 @@ export class SendingtemplateComponent implements OnInit {
     if (localStorage.getItem('FilterUser')) {
       localStorage.removeItem('FilterUser');
     }
-    localStorage.setItem('FilterUser', JSON.stringify(this.EmailSend));
+    localStorage.setItem('FilterUser', JSON.stringify(this.EmailSend[ID]));
     this.router.navigate(['sendingpreview', ID]);
   }
 

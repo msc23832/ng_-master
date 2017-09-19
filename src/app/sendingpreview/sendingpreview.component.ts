@@ -60,9 +60,9 @@ export class SendingpreviewComponent implements OnInit {
       //console.log(this.FilterUser);
     }
     var Message1Replace = this._dataTemplate[0].Message1;
-    this._dataTemplate[0].Message1 = Message1Replace.replace('#customer', `${this.FilterUser[0].firstname}`).replace('#confirm', `${this.FilterUser[0].Confirmation}`);
+    this._dataTemplate[0].Message1 = Message1Replace.replace('#customer', `${this.FilterUser.firstname}`).replace('#confirm', `${this.FilterUser.Confirmation}`);
     var Message2Replace = this._dataTemplate[0].Message2;
-    this._dataTemplate[0].Message2 = Message2Replace.replace('#arrival', `${this.FilterUser[0].arrival}`).replace('#departure', `${this.FilterUser[0].departure}`).replace('#rate', `${this.FilterUser[0].rsl_rateplan}`).replace('#room', `${this.FilterUser[0].roomtype}`);
+    this._dataTemplate[0].Message2 = Message2Replace.replace('#arrival', `${this.FilterUser.arrival}`).replace('#departure', `${this.FilterUser.departure}`).replace('#rate', `${this.FilterUser.rsl_rateplan}`).replace('#room', `${this.FilterUser.roomtype}`);
   }
 
   logError(err: string) {
