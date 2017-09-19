@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
@@ -16,7 +16,8 @@ import { SendingcompleteService } from './sendingcomplete.service';
 })
 export class SendingcompleteComponent implements OnInit {
 
-  private _EmailSending: Observable<any[]>;
+  // private _EmailSending: Observable<any[]>;
+  _EmailSending = [];
   @ViewChild('myModal')
   modal: ModalComponent;
   private resend;
@@ -50,8 +51,8 @@ export class SendingcompleteComponent implements OnInit {
       data => {
         console.log('received response');
         console.log('Waiting For SendEmail');
-        this.modal.close();
         this.getEmailSending();
+        this.modal.close();
       },
       err => {
         console.log(err);
@@ -63,15 +64,24 @@ export class SendingcompleteComponent implements OnInit {
     this.router.navigate(['sending']);
   }
 
+  // getEmailSending() {
+  //   this.busy = this.SendingcompleteService.getEmailSending().subscribe(
+  //     data => {
+  //       this._EmailSending = data;
+  //       //console.log(this._EmailSending);
+  //     },
+  //     err => {
+  //       console.log(err);
+  //     });
+  // }
+
   getEmailSending() {
-    this.busy = this.SendingcompleteService.getEmailSending().subscribe(
-      data => {
-        this._EmailSending = data;
-        //console.log(this._EmailSending);
-      },
-      err => {
-        console.log(err);
-      });
+    this.SendingcompleteService.getEmailSending().subscribe((message) => {
+      this._EmailSending.push(message);
+      //console.log(this._EmailSending);
+    });
+
+    this.SendingcompleteService.sendMessage('test');
   }
 
   logError(err: string) {
@@ -84,6 +94,10 @@ export class SendingcompleteComponent implements OnInit {
       this.Filter = JSON.parse(localStorage.getItem('Filter'));
       //console.log(this.Filter);
     }
+  }
+
+  ngOnDestroy() {
+    localStorage.removeItem('Filter');
   }
 
 }

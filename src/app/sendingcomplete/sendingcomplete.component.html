@@ -24,12 +24,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let data of _EmailSending">
+              <tr *ngFor="let data of _EmailSending[0]">
                 <td>{{data.Name}}</td>
                 <td>{{data.Room}}</td>
                 <td>{{data.Email}}</td>
                 <td>{{data.Form}}</td>
-                <td>{{data.Date}}</td>
+                <td>{{data.DateES}}</td>
                 <td>{{data.User}}</td>
                 <td align="center" valign="middle">
                   <a *ngIf="!data.StatusSend" (click)='onClickModal(data.IDSendEmail,data.Email,data.Form)'>Resend</a>

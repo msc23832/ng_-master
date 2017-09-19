@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -81,6 +81,10 @@ export class SendingpreviewComponent implements OnInit {
       this.getHotelInfo();
       //console.log(this.Filter);
     }
+  }
+
+  ngOnDestroy() {
+    localStorage.removeItem('FilterUser');
   }
 
 }

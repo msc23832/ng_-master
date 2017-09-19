@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -32,7 +32,8 @@ export class ReporttemplateComponent implements OnInit {
       status: '',
       floor: '',
       preference: '',
-      user: ''
+      user: '',
+      complete: 0
     };
 
     this.resend = {
@@ -46,7 +47,7 @@ export class ReporttemplateComponent implements OnInit {
   sendFilter() {
     //console.log(JSON.stringify(this.Filter[0]));
     let headers = new Headers({ 'Content-Type': 'application/json' });
-    return this._http.post(`${environment.apiUrl}/api/Report/`, JSON.stringify(this.Filter[0]), { headers: headers }).subscribe(
+    return this._http.post(`${environment.apiUrl}/api/Report`, JSON.stringify(this.Filter[0]), { headers: headers }).subscribe(
       data => this._EmailSending = data.json(),
       err => this.logError(err),
       () => console.log()//console.log(this._EmailSending)
@@ -130,6 +131,10 @@ export class ReporttemplateComponent implements OnInit {
       this.Filter = JSON.parse(localStorage.getItem('FilterReport'));
       this.busy = this.sendFilter();
     }
+  }
+
+  ngOnDestroy() {
+    localStorage.removeItem('FilterReport');
   }
 
 }

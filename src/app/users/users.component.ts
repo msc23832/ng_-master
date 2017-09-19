@@ -1,4 +1,4 @@
-import { Component, OnInit ,OnDestroy} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
@@ -32,10 +32,6 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.busy = this.getAll();
-  }
-  ngOnDestroy() {
-    console.log("ngOnDestroy");
-    
   }
 
 }

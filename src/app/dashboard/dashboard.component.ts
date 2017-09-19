@@ -45,7 +45,8 @@ export class DashboardComponent implements OnInit {
       status: '',
       floor: '',
       preference: '',
-      user: ''
+      user: '',
+      complete: 1
     };
   }
   private _data: Observable<any[]>;
@@ -71,7 +72,8 @@ export class DashboardComponent implements OnInit {
 
     let filterreport: Array<any> = [];
     if (localStorage.getItem('FilterReport')) {
-      filterreport = JSON.parse(localStorage.getItem('FilterReport'));
+      localStorage.removeItem('FilterReport');
+      //filterreport = JSON.parse(localStorage.getItem('FilterReport'));
     }
     filterreport.push(this.Filter);
     localStorage.setItem('FilterReport', JSON.stringify(filterreport));
